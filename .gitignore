@@ -1,0 +1,6 @@
+
+*.suo
+/RegexDesignerFSApp/obj
+/RegexDesignerFSApp/bin
+/RegexDesignerFSWeb/obj
+/RegexDesignerFSWeb/bin

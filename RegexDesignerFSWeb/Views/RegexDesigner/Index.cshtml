@@ -1,0 +1,34 @@
+﻿@model RegexDesigner.App.Models.IndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    
+    <h2>pattern</h2>
+    <div>
+        @Html.TextBoxFor(m => m.Pattern)
+        @Html.ValidationMessageFor(m => m.Pattern)
+    </div>
+
+    <h2>input</h2>
+    <div>
+        @Html.TextBoxFor(m => m.Input)
+        @Html.ValidationMessageFor(m => m.Input)
+    </div>
+    
+    <div>
+        <input type="submit" name="cmd" value="match" />
+    </div>
+
+    <h2>result</h2>
+
+    <div>
+    @foreach (var fragment in Model.Fragments)
+    {
+        <span class="@fragment.MatchType">@fragment.Content</span>
+    }
+    </div>
+
+}
