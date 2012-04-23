@@ -1,6 +1,6 @@
 ﻿@model RegexDesigner.App.Models.IndexViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Regex Designer by F#";
 }
 
 @using (Html.BeginForm())
@@ -8,7 +8,7 @@
     
     <h2>pattern</h2>
     <div>
-        @Html.TextBoxFor(m => m.Pattern)
+        @Html.TextBoxFor(m => m.Pattern, new {autofocus=true })
         @Html.ValidationMessageFor(m => m.Pattern)
     </div>
 
@@ -19,7 +19,7 @@
     </div>
     
     <div>
-        <input type="submit" name="cmd" value="match" />
+        <input type="submit" name="cmd" value="match" class="btn btn-primary btn-large" />
     </div>
 
     <h2>result</h2>
