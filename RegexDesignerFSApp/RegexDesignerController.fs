@@ -22,7 +22,7 @@ type RegexDesignerController() =
         let seq2 = Seq.append points (seq [|(input.Length, MatchType.None)|])
         Seq.zip seq1 seq2
             |> Seq.map (fun ((i1, t1), (i2, _)) -> (i1, i2-i1, t1))
-            |> Seq.map (fun (index, length, matchType) -> new Fragment(matchType, input.Substring(index, length)))
+            |> Seq.map (fun (index, length, matchType) -> {MatchType=matchType; Content=input.Substring(index, length)})
             |> Seq.filter (fun f -> f.Content <> "")
 
     [<HttpGet>]
