@@ -39,3 +39,11 @@
 {
     display: none;
 }
+
+/*-----------------------------------------------------------*/
+.result,
+textarea,
+input[type=text]
+{
+    font-family: Consolas;
+}

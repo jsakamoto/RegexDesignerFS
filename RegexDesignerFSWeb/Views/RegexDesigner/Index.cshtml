@@ -8,13 +8,13 @@
     
     <h2>pattern</h2>
     <div>
-        @Html.TextBoxFor(m => m.Pattern, new {autofocus=true })
+        @Html.TextBoxFor(m => m.Pattern, new {autofocus=true, @class="input-xxlarge" })
         @Html.ValidationMessageFor(m => m.Pattern)
     </div>
 
     <h2>input</h2>
     <div>
-        @Html.TextBoxFor(m => m.Input)
+        @Html.TextAreaFor(m => m.Input, new {@class="input-xxlarge", rows=10 })
         @Html.ValidationMessageFor(m => m.Input)
     </div>
     
@@ -24,11 +24,10 @@
 
     <h2>result</h2>
 
-    <div>
+    <div class="result well">
     @foreach (var fragment in Model.Fragments)
     {
-        <span class="@fragment.MatchType">@fragment.Content</span>
-    }
+<span class="@fragment.MatchType">@Html.Raw(HttpUtility.HtmlEncode(fragment.Content).Replace(" ", "&nbsp;").Replace("\n", "<br/>"))</span>}
     </div>
 
 }
